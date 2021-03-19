@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { Avatar } from 'antd'
+
 
 const navLinks = [
     {
@@ -22,11 +23,34 @@ const navLinks = [
 ]
 
 const Navigation = ({ user }) => {
-    const [menuActive, setMenuActive] = useState(false)
+    function useOutsideAlerter(ref) {
+        useEffect(() => {
+            /**
+             * Alert if clicked on outside of element
+             */
+            function handleClickOutside(event) {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    if (event.target === document.body)
+                        setMenuActive(false)
+                }
+            }
+
+            // Bind the event listener
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                // Unbind the event listener on clean up
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, [ref]);
+    }
+
+    let [menuActive, setMenuActive] = useState(false)
+    const wrapperRef = useRef(null)
+    useOutsideAlerter(wrapperRef)
     return (
         <nav className="site-navigation">
             <span className="menu-title">ABC Blog</span>
-            <div className={`menu-content-container ${menuActive && 'active'}`}>
+            <div className={`menu-content-container ${menuActive && 'active'}`} ref={wrapperRef} >
                 <ul>
                     {
                         navLinks.map((link, index) => (
