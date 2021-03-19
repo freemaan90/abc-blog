@@ -4,10 +4,14 @@ import Navigation from './components/Navigation'
 import PageRenderer from './PageRenderer'
 
 function App() {
+  const user = {
+    firstName: "Frederico",
+    lastName: "Zanoni Ruiz"
+  }
   return (
     <Router>
       <div className="App">
-        <Navigation />
+        <Navigation user={user} />
         <Switch>
           <Route path="/:page" component={PageRenderer} />
           <Route path="/" render={() => <Redirect to="/home" />} />
