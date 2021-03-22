@@ -4,7 +4,7 @@ const trending = [
     {
         title: "Can anyone code ?",
         date: moment().format('MMMM DD, YYYY'),
-        categories: ["Tech culture", "Tech news"],
+        categories: ["Tech Culture", "Tech News"],
         link: '#',
         image: "can_anyome_code.jpeg"
     },
@@ -18,14 +18,21 @@ const trending = [
     {
         title: "Popular programming lenguaje in 2020",
         date: moment().format('MMMM DD, YYYY'),
-        categories: ["Tech news", "Tech culture"],
+        categories: ["Tech News", "Tech Culture"],
+        link: "#",
+        image: "programming_lenguages_2020.jpeg"
+    },
+    {
+        title: "Popular programming lenguaje in 2020",
+        date: moment().format('MMMM DD, YYYY'),
+        categories: ["Tech News", "Tech Culture"],
         link: "#",
         image: "programming_lenguages_2020.jpeg"
     },
     {
         title: "Brain hacks for learning to program",
         date: moment().format('MMMM DD, YYYY'),
-        categories: ["Brain health"],
+        categories: ["Brain Health"],
         link: "#",
         image: "brain_health.png"
     },

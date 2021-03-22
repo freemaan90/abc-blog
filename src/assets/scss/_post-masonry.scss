@@ -1,5 +1,11 @@
 .Masonry{
     display: grid;
     grid-gap: 30px;
-    
+}
+
+@media screen and (max-width:900px){
+    .Masonry{
+        display: flex;
+        flex-direction: column;
+    }    
 }
